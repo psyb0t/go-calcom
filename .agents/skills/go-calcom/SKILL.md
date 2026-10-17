@@ -1,6 +1,7 @@
 ---
 name: go-calcom
-description: Unofficial Go client for Cal.com API v2, generated with oapi-codegen from the public OpenAPI document. Package calcom (github.com/psyb0t/go-calcom) has typed methods for bookings, event types, available slots, schedules, calendars, teams, webhooks and profile. Use when Go code needs Cal.com scheduling operations or already imports go-calcom.
+description: Writes Go code with go-calcom (package calcom, github.com/psyb0t/go-calcom), an unofficial client for Cal.com API v2 generated with oapi-codegen from the public OpenAPI document, with typed methods for bookings, event types, available slots, schedules, calendars, teams, webhooks and profile. Use when Go code needs Cal.com scheduling operations or already imports go-calcom.
+license: MIT
 homepage: https://github.com/psyb0t/go-calcom
 user-invocable: true
 metadata:
@@ -8,8 +9,6 @@ metadata:
     requires:
       bins:
         - go
-      env:
-        - CALCOM_API_KEY
 permissions:
   filesystem: "Guides edits to Go source in the current project. The client reads and writes no files."
   shell: "The Go toolchain to install and compile the dependency."
@@ -39,6 +38,20 @@ For install, operation names, headers and pagination, see [references/setup.md](
 - The code is not Go. This module ships only a Go package.
 - You need a client maintained by Cal.com. This client is unofficial.
 - You want to change generated code. Read `AGENTS.md` in the repository.
+
+## Finding endpoints and types
+
+The examples below cover a few calls. Every operation in the spec has a generated method, and the spec's descriptions are on them as Go doc comments. Look names and fields up instead of guessing. After `go get github.com/psyb0t/go-calcom`, from inside your module:
+
+```bash
+go doc github.com/psyb0t/go-calcom ClientWithResponsesInterface                 # every endpoint method
+go doc github.com/psyb0t/go-calcom BookingsController20240813GetBookingsParams  # one method, params type or model
+go doc -all github.com/psyb0t/go-calcom                                         # the whole package
+```
+
+The same documentation is at https://pkg.go.dev/github.com/psyb0t/go-calcom.
+
+Method names come from the spec's operation IDs, which include controller names and endpoint versions (`BookingsController20240813GetBookings`). `<OperationId>WithResponse` takes the context, then the path parameters in order, then `*<OperationId>Params` when the operation has query or header parameters, then the request body when it has one. The `Authorization` and `CalApiVersion` headers are fields of that params struct. The `JSON200` field (or `JSON201` and so on, per declared status) holds the decoded body; it is nil for any other status.
 
 ## Usage
 

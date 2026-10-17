@@ -68,6 +68,8 @@ The spec declares no server URL, so pass the host yourself: `https://api.cal.com
 
 Method names come from the spec's operation IDs. `MeControllerGetMeWithResponse` reads the profile and `BookingsController20240813GetBookingsWithResponse` lists bookings. The error return covers transport and decoding failures; inspect `StatusCode()` and the parsed status field for API failures.
 
+The full API is in the [Go reference](https://pkg.go.dev/github.com/psyb0t/go-calcom); after `go get`, `go doc github.com/psyb0t/go-calcom` prints it locally.
+
 ## Auth
 
 Cal.com uses `Authorization: Bearer <token>` with an API key or supported access token. Read the credential from `CALCOM_API_KEY`; the request editor above attaches the header. The spec expresses authentication as operation header parameters rather than `securitySchemes`, so required `Authorization` fields must also be populated in the generated params.
