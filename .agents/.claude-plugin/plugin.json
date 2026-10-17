@@ -1,0 +1,18 @@
+{
+  "name": "go-calcom",
+  "description": "Unofficial Go client for Cal.com API v2: bookings, event types, availability, schedules, calendars, teams and profile, generated from the public OpenAPI spec.",
+  "author": {
+    "name": "psyb0t",
+    "url": "https://github.com/psyb0t"
+  },
+  "homepage": "https://github.com/psyb0t/go-calcom",
+  "license": "MIT",
+  "keywords": [
+    "calcom",
+    "scheduling",
+    "bookings",
+    "api-client",
+    "go-library",
+    "openapi"
+  ]
+}
